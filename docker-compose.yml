@@ -6,7 +6,7 @@ services:
     image: brender_ftp_server_dev
     container_name: brender_ftp_server_dev
     ports:    
-      - "21:21"
+      - "2121:2121"
     # environment:
       # RABBIT_MANAGEMENT_PASSWORD: "admin"
       # RABBIT_MANAGEMENT_USER: "pass"
@@ -17,5 +17,5 @@ services:
     volumes:
       # - "/etc/timezone:/etc/timezone:ro"
       # - "/etc/localtime:/etc/localtime:ro"
-      - ./data:/mnt
-    # command:  bash -c "date; sleep 5; rabbitmq-plugins enable rabbitmq_management; rabbitmq-server;"
+      - ./data:/usr/app/data
+    command:  /bin/sh -c "python src/main.py"

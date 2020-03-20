@@ -7,6 +7,7 @@ ARG GROUP_ID
 
 # Copy source to container
 RUN mkdir -p /usr/app/src
+RUN mkdir -p /usr/app/data
 
 COPY . /usr/app
 
@@ -40,4 +41,6 @@ USER $USER_ID
 
 #CMD [ "app/app.py" ]
 
-CMD [ "/bin/sh" ]
+# CMD [ "/bin/sh" ]
+
+CMD ["python","src/main.py"]
