@@ -1,0 +1,5 @@
+build dev servers:
+docker build -t brender_ftp_server_dev --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) .
+
+run dev server:
+docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/usr/app brender_ftp_server_dev
