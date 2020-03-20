@@ -1,0 +1,21 @@
+version: '3.0'
+
+services:
+  brender_ftp_server:
+    restart: always
+    image: brender_ftp_server_dev
+    container_name: brender_ftp_server_dev
+    ports:    
+      - "21:21"
+    # environment:
+      # RABBIT_MANAGEMENT_PASSWORD: "admin"
+      # RABBIT_MANAGEMENT_USER: "pass"
+      # RABBITMQ_DEFAULT_USER: "rabbitmq"
+      # RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      # - TZ=Asia/Shanghai
+    tty: true
+    volumes:
+      # - "/etc/timezone:/etc/timezone:ro"
+      # - "/etc/localtime:/etc/localtime:ro"
+      - ./data:/mnt
+    # command:  bash -c "date; sleep 5; rabbitmq-plugins enable rabbitmq_management; rabbitmq-server;"
